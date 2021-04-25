@@ -405,11 +405,6 @@ def obtenerBoard(boardId):
   }
   return boardData
 
-result = crearPartida('h')
-registrarMovimiento(result['id'], 'e2e4')
-result = crearPartida('h')
-registrarMovimiento(result['id'], 'e2e3')
-
 app = Flask(__name__)
 
 def levantarApi():
@@ -425,7 +420,7 @@ def levantarApi():
     return jsonify(all_boards)
   @app.route('/api/v1/resources/boards/create', methods=['GET'])
   def api_create():
-    boardData = crearPartida()
+    boardData = crearPartida('h')
     return jsonify(boardData)
   @app.route('/api/v1/resources/boards/registrar', methods=['GET'])
   def api_register_movement():
